@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  tasks:
+    - name: Hello world
+      debug:
+        msg: "Hello World!"
+
+- hosts: all
+  tasks:
+    - name: Update all packages
+      yum:
+        name: '*'
+        state: latest

@@ -1,0 +1,23 @@
+version: "3.7"
+
+services:
+  ansible:
+    container_name: ansible
+    build: docker/ansible
+    tty: true
+    working_dir: /var/data
+    volumes:
+      - ./ansible:/var/data
+    networks:
+      - ansible-network
+
+  target:
+    container_name: target
+    build: docker/target
+    tty: true
+    networks:
+      - ansible-network
+
+networks:
+  ansible-network:
+    name: ansible_network
