@@ -1,7 +1,3 @@
-FROM centos
+FROM alpine
 
-RUN yum clean all && \
-    yum update -y && \
-    yum -y install epel-release && \
-    yum -y install ansible && \
-    yum -y install openssh-clients
+RUN apk --no-cache --update-cache add ansible python3 openssh sshpass

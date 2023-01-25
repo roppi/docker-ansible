@@ -21,13 +21,13 @@
 1. Dockerコンテナを起動します。
 
 ```
-$ docker-compose up -d
+$ docker compose up -d
 ```
 
 2. Ansibleコンテナに接続します。
 
 ```
-$ docker exec -it ansible /bin/bash
+$ docker exec -it ansible-controller /bin/ash
 ```
 
 3. Playbookを実行します
@@ -54,12 +54,12 @@ ok: [localhost] => {
 PLAY [all] *****************************************************************************************************************************
 
 TASK [Gathering Facts] *****************************************************************************************************************
-ok: [target]
+ok: [ansible-target]
 
 TASK [yum update] **********************************************************************************************************************
-ok: [target]
+ok: [ansible-target]
 
 PLAY RECAP *****************************************************************************************************************************
-localhost                  : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-target                     : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+ansible-target             : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+localhost                  : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 ```

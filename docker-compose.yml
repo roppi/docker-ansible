@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   ansible:
-    container_name: ansible
+    container_name: ansible-controller
     build: docker/ansible
     tty: true
     working_dir: /var/data
@@ -12,7 +12,7 @@ services:
       - ansible-network
 
   target:
-    container_name: target
+    container_name: ansible-target
     build: docker/target
     tty: true
     networks:
