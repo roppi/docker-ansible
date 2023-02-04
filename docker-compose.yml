@@ -8,6 +8,8 @@ services:
     working_dir: /var/data
     volumes:
       - ./ansible:/var/data
+    environment:
+      - ANSIBLE_CONFIG=.
     networks:
       - ansible-network
 
@@ -15,8 +17,11 @@ services:
     container_name: ansible-target
     build: docker/target
     tty: true
+    init: true
     networks:
       - ansible-network
+    cap_add:
+      - NET_ADMIN
 
 networks:
   ansible-network:

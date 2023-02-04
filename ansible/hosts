@@ -1,1 +1,10 @@
+[all]
 ansible-target
+
+[all:vars]
+ansible_user="root"
+ansible_password="root"
+ansible_become_pass="root"
+ansible_port=22
+
+root_password="root"
